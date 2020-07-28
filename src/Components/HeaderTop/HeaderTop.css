@@ -1,0 +1,16 @@
+.logoHeader{
+    display: flex;
+    justify-content: center;
+    
+}
+.logoHeader img{
+    width:50vw;
+}
+.end-phrase{
+    margin-top: 2%;
+    text-align: center;
+    
+}
+.header-box{
+    background: #dcdcdcce;;
+}

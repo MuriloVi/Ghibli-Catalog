@@ -1,0 +1,11 @@
+.card-box{
+    background-color: white;
+    border-radius: 10px;
+    transition: color .4s, background-color .4s;
+
+}
+.card-box:hover{
+    color: white;
+    background-color: #008E90FF;
+    cursor: pointer;
+}
