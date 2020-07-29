@@ -50,6 +50,9 @@ function Filmpage() {
                     <>
                         <div data-aos="fade-up" >
                             <div id="title-date"><h1>{ghibliFilm.title}</h1> <br/> <h3>{ghibliFilm.release_date}</h3></div>
+                            <div className="Score-card">
+                                <h3> Score : {ghibliFilm.rt_score}</h3>
+                            </div>
                             <h3 id="description">{ghibliFilm.description}</h3>
                             <h3> Director :{ghibliFilm.director} </h3>
                             <h3> Producer: {ghibliFilm.producer}</h3>
