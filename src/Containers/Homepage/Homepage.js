@@ -10,7 +10,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 //code use
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import { getAllFilms } from '../../services/ghibli';
 
 
@@ -44,7 +44,11 @@ function Homepage() {
                     <>
                         <div data-aos="fade-up" className="Catalog">
                             {ghibliFilms.map((film) => {
-                                return <Card key={film.id} film={film} />
+                                return (
+                                   
+                                     <Card key={film.id} film={film} />
+                                   
+                                ) 
                             })}
                         </div>
                     </>
