@@ -9,7 +9,7 @@ function HeaderTop() {
     return (
         <div className="header-box">
             <div className="logoHeader">
-                <img alt="logo" src={GhibliLogo} />
+               <a href="/"><img alt="logo" src={GhibliLogo} /></a> 
             </div>
             <div className="end-phrase">
                 <p>The Catalog</p>

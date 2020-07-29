@@ -6,6 +6,8 @@ import HeaderTop from '../../Components/HeaderTop/HeaderTop'
 
 
 //assets
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 //code use
@@ -19,7 +21,8 @@ function Filmpage() {
     const [ghibliFilm, setGhiblifilm] = useState({});
     const baseURL = 'https://ghibliapi.herokuapp.com/films/';
 
-    let {id} = useParams()
+    let { id } = useParams()
+    AOS.init()
 
     useEffect(() => {
         async function fetchFilm() {
@@ -42,9 +45,19 @@ function Filmpage() {
     return (
         <div>
             <HeaderTop />
-            <div className="Home-box">
-                {loading ?  <h1>Loading...</h1> : <h1>{ghibliFilm.title}</h1> }
-              
+            <div className="Film-box">
+                {loading ? <h1>Loading...</h1> : (
+                    <>
+                        <div data-aos="fade-up" >
+                            <div id="title-date"><h1>{ghibliFilm.title}</h1> <br/> <h3>{ghibliFilm.release_date}</h3></div>
+                            <h3 id="description">{ghibliFilm.description}</h3>
+                            <h3> Director :{ghibliFilm.director} </h3>
+                            <h3> Producer: {ghibliFilm.producer}</h3>
+                        </div>
+
+                    </>
+                )}
+
             </div>
 
         </div>
