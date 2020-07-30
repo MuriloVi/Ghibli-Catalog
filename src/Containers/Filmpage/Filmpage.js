@@ -14,6 +14,8 @@ import 'aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import { getAllFilms } from '../../services/ghibli';
 import { useParams } from 'react-router-dom';
+import img_ID from '../../Helpers/id_Img'
+
 
 
 function Filmpage() {
@@ -21,15 +23,16 @@ function Filmpage() {
     const [ghibliFilm, setGhiblifilm] = useState({});
     const baseURL = 'https://ghibliapi.herokuapp.com/films/';
 
-    let { id } = useParams()
+     //Animation on Scroll
     AOS.init()
 
+    let { id } = useParams()
     useEffect(() => {
         async function fetchFilm() {
             let response = await getAllFilms(`${baseURL}/${id}`)
-            console.log(response)
             await loadingGhibli(response)
             setLoading(false)
+
         }
         fetchFilm()
     }, [id])
@@ -37,11 +40,9 @@ function Filmpage() {
     const loadingGhibli = async (data) => {
         let ghibliData = data
         setGhiblifilm(ghibliData)
+        
     }
-    //AOS.init();
-
-
-
+  
     return (
         <div>
             <HeaderTop />
@@ -49,10 +50,14 @@ function Filmpage() {
                 {loading ? <h1>Loading...</h1> : (
                     <>
                         <div data-aos="fade-up" >
-                            <div id="title-date"><h1>{ghibliFilm.title}</h1> <br/> <h3>{ghibliFilm.release_date}</h3></div>
+                            <div id="title-date"><h1 >{ghibliFilm.title}</h1> <br/> <h3>{ghibliFilm.release_date}</h3></div>
+                           <div className="Img-by-sliced-id">
+                               <img  alt="film banner" src={img_ID(ghibliFilm.id.slice(0,4))} />
+                           </div>
                             <div className="Score-card">
-                                <h3> Score : {ghibliFilm.rt_score}</h3>
+                                <h3>Score<br/>{ghibliFilm.rt_score}</h3>
                             </div>
+                               
                             <h3 id="description">{ghibliFilm.description}</h3>
                             <h3> Director :{ghibliFilm.director} </h3>
                             <h3> Producer: {ghibliFilm.producer}</h3>

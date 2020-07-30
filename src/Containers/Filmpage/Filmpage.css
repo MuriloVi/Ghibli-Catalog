@@ -18,12 +18,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 18%;
+    width: 25%;
     border: 1px solid black;
+    margin-top: 1.5%;
 }
 .Score-card:hover{
     background-color:  #008E90FF;
     color:white;
+}
+.Img-by-sliced-id img{
+     width: 60vw;
 }
 #title-date h1{
     margin-bottom: 0;
