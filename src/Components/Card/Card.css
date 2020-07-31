@@ -4,20 +4,24 @@
     transition: color .4s, background-color .4s;
     color: black;
     text-decoration: none;
-    height: 50px;
+    height: 400px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    
     
 
 }
 .card-title {
     text-decoration: none;
  }
+ .film-poster-by-id img{
+     width: 200px;
+ }
 
 @media (max-width: 380px) {
     .card-box{
-        width: 70%;
+        width: 80%;
     }
   }
 .card-box:hover{

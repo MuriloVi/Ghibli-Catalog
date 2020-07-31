@@ -17,6 +17,8 @@ import { getAllFilms } from '../../services/ghibli';
 function Homepage() {
     const [loading, setLoading] = useState(true);
     const [ghibliFilms, setGhiblifilms] = useState([]);
+    //const [filteredGhibli, setFilteredGhibli] = useState('');
+    //const [search, setSearch] = useState('')
     const baseURL = 'https://ghibliapi.herokuapp.com/films/';
 
     useEffect(() => {
@@ -28,6 +30,7 @@ function Homepage() {
         }
         fetchFilms()
     }, [])
+
 
     const loadingGhibli = async (data) => {
         let ghibliData = await Promise.all(data.map(async film => film))
@@ -42,11 +45,11 @@ function Homepage() {
             <div className="Home-box">
                 {loading ? <h3 style={{ textAlign: "center", backgroundColor:"#dcdcdcce"  }}>Loading...</h3> : (
                     <>
-                        <div data-aos="fade-up" className="Catalog">
+                        <div  className="Catalog">
                             {ghibliFilms.map((film) => {
                                 return (
-                                   
-                                     <Card key={film.id} film={film} />
+                                    <div data-aos="fade-up"><Card key={film.id} film={film} /></div>
+                                     
                                    
                                 ) 
                             })}
