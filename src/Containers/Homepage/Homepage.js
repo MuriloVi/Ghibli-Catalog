@@ -14,11 +14,12 @@ import { useEffect, useState } from 'react';
 import { getAllFilms } from '../../services/ghibli';
 
 
+
 function Homepage() {
     const [loading, setLoading] = useState(true);
     const [ghibliFilms, setGhiblifilms] = useState([]);
-    //const [filteredGhibli, setFilteredGhibli] = useState('');
-    //const [search, setSearch] = useState('')
+    const [filteredGhibli, setFilteredGhibli] = useState('');
+    const [search, setSearch] = useState('')
     const baseURL = 'https://ghibliapi.herokuapp.com/films/';
 
     useEffect(() => {
@@ -30,6 +31,13 @@ function Homepage() {
         }
         fetchFilms()
     }, [])
+    useEffect(() => {
+        setFilteredGhibli(
+            ghibliFilms.filter(film => {
+                return film.title.toLowerCase().includes(search.toLowerCase())
+            })
+        )
+    }, [search, ghibliFilms])
 
 
     const loadingGhibli = async (data) => {
@@ -43,15 +51,19 @@ function Homepage() {
         <div>
             <HeaderTop />
             <div className="Home-box">
-                {loading ? <h3 style={{ textAlign: "center", backgroundColor:"#dcdcdcce"  }}>Loading...</h3> : (
+                {loading ? <h3 style={{ textAlign: "center", backgroundColor: "#dcdcdcce" }}>Loading...</h3> : (
                     <>
-                        <div  className="Catalog">
-                            {ghibliFilms.map((film) => {
+                        <div className="input-box">
+                            <input placeholder=" Search for a film..." onChange={e => setSearch(e.target.value)}></input>
+
+                        </div>
+                        <div className="Catalog">
+                            {filteredGhibli.map((film) => {
                                 return (
                                     <div data-aos="fade-up"><Card key={film.id} film={film} /></div>
-                                     
-                                   
-                                ) 
+
+
+                                )
                             })}
                         </div>
                     </>

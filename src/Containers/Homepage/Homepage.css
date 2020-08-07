@@ -11,3 +11,13 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 10px;
   }
+  .input-box input{
+    width: 40vw;
+    height: 25px; 
+    border-radius: 5px;
+    margin: 2%;
+    border: 2px solid #008E90FF ;
+    border-image: initial;
+    outline: none;
+    background-color: rgba(242, 242, 242, 0.8);
+  }
