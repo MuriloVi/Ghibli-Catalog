@@ -8,8 +8,8 @@
     width: 70%;
     display: grid;
     margin: 0 auto;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 12px;
   }
   .input-box input{
     width: 40vw;
